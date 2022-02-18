@@ -26,10 +26,10 @@ def main_logic():
       y_cols = st.text_input("input the new row names from right to left, each separated by *: example 'Age*Place of Birth*Generation ")
 
       submit = st.button('Done?')
-      
+      st.write()
       if submit == True:
-          st.dataframe(pd.crosstab([df[i] for i in separate_into_cols(x_cols)], 
-                             [df[i] for i in separate_into_cols(y_cols)]))
+          st.dataframe(pd.crosstab([df[i] for i in separate_into_cols(y_cols)], 
+                             [df[i] for i in separate_into_cols(x_cols)]))
 
 
 if __name__ == '__main__':
