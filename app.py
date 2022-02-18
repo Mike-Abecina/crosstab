@@ -19,7 +19,16 @@ def main_logic():
   file_path = st.file_uploader("Upload your file")
 
   if  file_path is not None:
-      df = pd.read_csv(file_path)
+      try:
+          df = pd.read_csv(file_path)
+      except:
+          'type - xlsx'
+          
+      try:
+          df = pd.read_excel(file_path, engine = 'openpyxl')
+      except:
+         'type - csv'
+         
       st.write("Column names")
       st.write(df.columns)
       x_cols = st.text_input("input the new column names from bottom to top, each separated by *: example 'Age*Place of Birth*Generation ")
