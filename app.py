@@ -22,12 +22,10 @@ def main_logic():
       try:
           df = pd.read_csv(file_path)
       except:
-          'type - xlsx'
-          
-      try:
-          df = pd.read_excel(file_path, engine = 'openpyxl')
-      except:
-         'type - csv'
+          try:
+              df = pd.read_excel(file_path, engine = 'openpyxl')
+          except:
+             'type - csv'
          
       st.write("Column names")
       st.write(df.columns)
